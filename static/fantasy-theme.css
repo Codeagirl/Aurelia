@@ -1,0 +1,156 @@
+:root {
+  --pico-font-family-sans-serif: Georgia, 'Times New Roman', Cambria, serif;
+  --pico-font-family-serif: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --pico-font-family: var(--pico-font-family-sans-serif);
+  --pico-font-size: 105%;
+  --pico-line-height: 1.6;
+
+  --coastal-bg-deep: #091716;
+  --coastal-bg-card: #102624;
+  --coastal-bg-input: #071211;
+  --coastal-border: #214743;
+  --coastal-border-glow: #387069;
+
+  --coastal-blue-btn: #0284c7;
+  --coastal-blue-hover: #0369a1;
+  --coastal-blue-focus: rgba(56, 189, 248, 0.35);
+
+  --coastal-coral: #dc2626;
+  --coastal-coral-hover: #b91c1c;
+
+  --coastal-text-main: #f8fafc;
+  --coastal-text-muted: #cbd5e1;
+  --coastal-heading-light: #fef08a;
+
+  --pico-background-color: var(--coastal-bg-deep);
+  --pico-color: var(--coastal-text-main);
+  --pico-h1-color: var(--coastal-heading-light);
+  --pico-h2-color: var(--coastal-heading-light);
+  --pico-h3-color: var(--coastal-heading-light);
+  --pico-h4-color: var(--coastal-heading-light);
+  --pico-h5-color: var(--coastal-heading-light);
+  --pico-h6-color: var(--coastal-heading-light);
+
+  --pico-primary: var(--coastal-blue-btn);
+  --pico-primary-background: var(--coastal-blue-btn);
+  --pico-primary-hover: var(--coastal-blue-hover);
+  --pico-primary-focus: var(--coastal-blue-focus);
+  --pico-primary-inverse: #ffffff;
+
+  --pico-border-color: var(--coastal-border);
+  --pico-card-background-color: var(--coastal-bg-card);
+  --pico-card-border-color: var(--coastal-border);
+  --pico-muted-color: var(--coastal-text-muted);
+  --pico-form-element-background-color: var(--coastal-bg-input);
+  --pico-form-element-border-color: var(--coastal-border);
+  --pico-form-element-active-border-color: var(--coastal-blue-btn);
+}
+
+body {
+  background: radial-gradient(circle at 50% 10%, #15312e 0%, #091716 80%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--coastal-text-main);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--pico-font-family-serif);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--coastal-heading-light);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+  border-bottom: 2px solid var(--coastal-border-glow);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+article, article.card {
+  border: 1px solid var(--coastal-border);
+  border-radius: 6px;
+  background-color: var(--coastal-bg-card);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  position: relative;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  color: var(--coastal-text-main);
+}
+
+article:hover {
+  border-color: var(--coastal-border-glow);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.8), 0 0 12px rgba(56, 189, 248, 0.2);
+}
+
+button, [role="button"], input[type="submit"] {
+  font-family: var(--pico-font-family-serif);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background-color: var(--coastal-blue-btn);
+  border: 1px solid #0284c7;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover, [role="button"]:hover {
+  background-color: var(--coastal-blue-hover);
+  border-color: #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+  color: #ffffff;
+}
+
+button.crimson, [role="button"].crimson {
+  background-color: var(--coastal-coral);
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+button.crimson:hover, [role="button"].crimson:hover {
+  background-color: var(--coastal-coral-hover);
+  box-shadow: 0 0 14px rgba(220, 38, 38, 0.5);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--coastal-border);
+  border-radius: 6px;
+  overflow: hidden;
+  color: var(--coastal-text-main);
+}
+
+th {
+  font-family: var(--pico-font-family-serif);
+  background-color: #163633;
+  color: var(--coastal-heading-light);
+  border-bottom: 2px solid var(--coastal-border-glow);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+blockquote {
+  border-left: 4px solid var(--coastal-blue-btn);
+  background-color: rgba(7, 18, 17, 0.8);
+  padding: 1rem 1.2rem;
+  font-style: italic;
+  border-radius: 0 6px 6px 0;
+  color: #f1f5f9;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--coastal-bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--coastal-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--coastal-border-glow);
+}

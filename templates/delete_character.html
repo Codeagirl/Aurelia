@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Character</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fantasy-theme.css') }}">
+</head>
+<body>
+
+    <h1>Are you sure?</h1>
+    <p>This will permanently delete <strong>{{ character[2] }}</strong> and all of their progress. This cannot be undone.</p>
+
+    <ul>
+        <li>Strength: {{ character[3] }}</li>
+        <li>Dexterity: {{ character[4] }}</li>
+        <li>Constitution: {{ character[5] }}</li>
+        <li>Intelligence: {{ character[6] }}</li>
+        <li>Wisdom: {{ character[7] }}</li>
+        <li>Charisma: {{ character[8] }}</li>
+        <li>HP: {{ character[9] }} / {{ character[10] }}</li>
+    </ul>
+
+    <form method="POST" action="{{ url_for('delete_character') }}">
+        <button type="submit">Yes, delete this character</button>
+    </form>
+
+    <a href="{{ url_for('character') }}">Cancel, take me back</a>
+
+</body>
+</html>

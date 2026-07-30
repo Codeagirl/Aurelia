@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aurilla Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fantasy-theme.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Aurilla</h1>
+        
+        <p>Welcome {{user}}</p>
+
+        <p><a href="/character">character</a>                <a href="/account">Account</a></p>
+
+        {% if outcome %}
+            <p><strong>{{ outcome }}</strong></p>
+        {% endif %}
+
+        <p>{{ step.text }}</p>
+
+        {% if step.type == 'buttons' %}
+            <form method="POST" action="/game">
+                {% for option_key, option_data in step.options.items() %}
+                    <button type="submit" name="chosen_option" value="{{ option_key }}">{{ option_data.label }}</button>
+                {% endfor %}
+            </form>
+        {% elif step.type == 'auto' %}
+            <form method="POST" action="/game">
+                <button type="submit">Continue</button>
+            </form>
+        {% elif step.type == 'check' %}
+            <form method="POST" action="/game">
+                <button type="submit">Attempt</button>
+            </form>
+        {% elif step.type == 'combat' %}
+        <form method="POST" action="/game">
+            <button type="submit" name="chosen_option" value="attack">Attack</button>
+            <button type="submit" name="chosen_option" value="dodge">Dodge</button>
+        </form>
+        {% endif %}
+
+        <p>Mission step: {{ mission_step }}</p>
+    
+    </main>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aurilla Character</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fantasy-theme.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Create a Character</h1>
+
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="/create_a_character">
+
+            <label for="character_name">Character Name</label>
+            <input type="text" name="character_name" id="character_name">
+
+            <label for="strength">Strength (8-18)</label>
+            <input type="number" name="strength" id="strength" min="8" max="18" value="8" oninput="checkPoints()">
+
+            <label for="dexterity">Dexterity (8-18)</label>
+            <input type="number" name="dexterity" id="dexterity" min="8" max="18" value="8" oninput="checkPoints()">
+
+            <label for="constitution">Constitution (8-18)</label>
+            <input type="number" name="constitution" id="constitution" min="8" max="18" value="8" oninput="checkPoints()">
+
+            <label for="intelligence">Intelligence (8-18)</label>
+            <input type="number" name="intelligence" id="intelligence" min="8" max="18" value="8" oninput="checkPoints()">
+
+            <label for="wisdom">Wisdom (8-18)</label>
+            <input type="number" name="wisdom" id="wisdom" min="8" max="18" value="8" oninput="checkPoints()">
+
+            <label for="charisma">Charisma (8-18)</label>
+            <input type="number" name="charisma" id="charisma" min="8" max="18" value="8" oninput="checkPoints()">
+
+            <p>Points remaining: <span id="points_remaining">20</span></p>
+
+            <button type="submit">Create</button>
+        </form>
+    </main>
+</body>
+
+<script>
+    function checkPoints() {
+        const stats = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+        let totalSpent = 0;
+
+        stats.forEach(function(stat) {
+            const value = parseInt(document.getElementById(stat).value);
+            totalSpent += (value - 8);
+        });
+
+        document.getElementById("points_remaining").textContent = 20 - totalSpent;
+
+    }
+</script>
+
+</html>
