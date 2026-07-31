@@ -2,7 +2,7 @@
 
 An explorative game, where you will learn the truth about the Hollow Crown, a conspiracy to overthrow the monarchy. You will be solving puzzles and battling to the end to find the truth — can you make it through?
 
-!Gameplay Screenshot](photos/main_page.png)
+![Gameplay Screenshot](photos/main_page.png)
 
 ## Features
 
@@ -69,9 +69,9 @@ To install the game, clone or download this repository from GitHub.
    - mission_step
    - npc1_feelings
   
-     !Gameplay Screenshot](photos/Table_1)
-     !Gameplay Screenshot](photos/table_2.png)
-     !Gameplay Screenshot](photos/characters_table.png)
+     ![Gameplay Screenshot](photos/Table_1)
+     ![Gameplay Screenshot](photos/table_2.png)
+     ![Gameplay Screenshot](photos/characters_table.png)
 
 7. Once the database and tables are created, run the app:
    ```
@@ -89,15 +89,15 @@ You should now be able to sign up and start playing.
 
 When you first open the game, you'll need to make an account. To create an account, choose a username and password. Once you've created an account, you'll need to return to the login page, where you can now log in using your username and password.
 
-!Gameplay Screenshot](photos/login.png)
+![Gameplay Screenshot](photos/login.png)
 
 Once logged in, you'll be asked to create a character — this includes your character's name and their stats. All stats start at a base of 8, but you're given 20 points to raise any of the 6 stats. You can raise each stat to a max of 18, but you can't use more than 20 points total; each point of increase costs one point. The stats you choose will affect your character for the rest of the game, so choose wisely.
 
-!Gameplay Screenshot](photos/creata_a_character.png)
+![Gameplay Screenshot](photos/creata_a_character.png)
 
 Once you've created your character, you can now play the game. In the game, you'll be presented with a short descriptive section, followed by an action you need to take — this could be to continue, make a choice, or take part in combat. No matter the choice you make, it affects the rest of the game. Once the story has finished, whether your character lived or died, you can try again by deleting your old character and creating a new one.
 
-!Gameplay Screenshot](photos/choices.png) 
+![Gameplay Screenshot](photos/choices.png) 
 
 ## Limitations
 
