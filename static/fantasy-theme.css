@@ -1,10 +1,20 @@
+/* ==========================================================================
+   Aurilla "coastal fantasy" theme
+   Overrides Pico.css's default variables/colors rather than fighting its
+   layout - most rules below just re-point --pico-* variables at the
+   --coastal-* palette defined here.
+   ========================================================================== */
+
 :root {
+  /* Fonts: serif headings for a storybook feel, keeps Pico's default body font */
   --pico-font-family-sans-serif: Georgia, 'Times New Roman', Cambria, serif;
   --pico-font-family-serif: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
   --pico-font-family: var(--pico-font-family-sans-serif);
   --pico-font-size: 105%;
   --pico-line-height: 1.6;
 
+  /* Palette: dark teal/green background, warm gold headings, blue as the
+     primary action color, coral/red reserved for destructive actions */
   --coastal-bg-deep: #091716;
   --coastal-bg-card: #102624;
   --coastal-bg-input: #071211;
@@ -22,6 +32,8 @@
   --coastal-text-muted: #cbd5e1;
   --coastal-heading-light: #fef08a;
 
+  /* Wire the coastal palette into Pico's variables so all of Pico's
+     built-in components (buttons, cards, forms, etc.) pick it up automatically */
   --pico-background-color: var(--coastal-bg-deep);
   --pico-color: var(--coastal-text-main);
   --pico-h1-color: var(--coastal-heading-light);
@@ -46,6 +58,7 @@
   --pico-form-element-active-border-color: var(--coastal-blue-btn);
 }
 
+/* Subtle radial vignette behind the whole page, fixed so it doesn't scroll with content */
 body {
   background: radial-gradient(circle at 50% 10%, #15312e 0%, #091716 80%);
   background-attachment: fixed;
@@ -53,6 +66,7 @@ body {
   color: var(--coastal-text-main);
 }
 
+/* Uppercase, letter-spaced serif headings with a drop shadow for a carved/engraved look */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--pico-font-family-serif);
   letter-spacing: 0.06em;
@@ -67,6 +81,7 @@ h1 {
   margin-bottom: 1.2rem;
 }
 
+/* Card-style panels (Pico's <article>) with a soft glow on hover */
 article, article.card {
   border: 1px solid var(--coastal-border);
   border-radius: 6px;
@@ -82,6 +97,7 @@ article:hover {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.8), 0 0 12px rgba(56, 189, 248, 0.2);
 }
 
+/* Default buttons: blue, uppercase, serif label */
 button, [role="button"], input[type="submit"] {
   font-family: var(--pico-font-family-serif);
   letter-spacing: 0.05em;
@@ -101,6 +117,7 @@ button:hover, [role="button"]:hover {
   color: #ffffff;
 }
 
+/* Add class="crimson" to a button for destructive actions (e.g. delete character) */
 button.crimson, [role="button"].crimson {
   background-color: var(--coastal-coral);
   border-color: #ef4444;
@@ -112,6 +129,7 @@ button.crimson:hover, [role="button"].crimson:hover {
   box-shadow: 0 0 14px rgba(220, 38, 38, 0.5);
 }
 
+/* Rounded-corner tables with alternating row shading for readability */
 table {
   border-collapse: separate;
   border-spacing: 0;
@@ -132,6 +150,7 @@ tr:nth-child(even) {
   background-color: rgba(255, 255, 255, 0.03);
 }
 
+/* Italic, left-bordered blockquote for in-world flavor text/lore excerpts */
 blockquote {
   border-left: 4px solid var(--coastal-blue-btn);
   background-color: rgba(7, 18, 17, 0.8);
@@ -141,6 +160,7 @@ blockquote {
   color: #f1f5f9;
 }
 
+/* Themed scrollbar (Chrome/Safari/Edge only - Firefox ignores ::-webkit-* rules) */
 ::-webkit-scrollbar {
   width: 9px;
 }

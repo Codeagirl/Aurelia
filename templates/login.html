@@ -13,10 +13,12 @@
 
         <p>Please create an login if you would like to start an adventure</p>
     
+        <!-- Populated by the login() route when username/password don't match -->
         {% if error %}
             <p style="color:red;">{{ error }}</p>
         {% endif %}
 
+        <!-- POSTs to Aurilla.py's login() route, which checks credentials against player_data.db -->
         <form method="POST" action="/login">
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
@@ -30,4 +32,5 @@
     </main>
 </body>
 
-</html>    
+</html>
+ 

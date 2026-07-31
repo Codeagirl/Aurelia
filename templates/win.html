@@ -8,13 +8,15 @@
 <body>
     <main class="container">
         <h1>Aurilla</h1>
+        <!-- Mismatched tag: opens <h3>, closes </h2> -->
         <h3>You Won</h2>
 
         <p>Great Job!</p>
 
+        <!-- Reached via redirect(url_for('win')) when boss_hp <= 0 in the combat handler -->
         <p>Want to Play again<a href="/delete_character">Click Here!</a>
     
 
     </main>
 </body>
-</html>  
+</html>

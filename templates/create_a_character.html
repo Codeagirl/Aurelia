@@ -9,15 +9,20 @@
     <main class="container">
         <h1>Create a Character</h1>
 
+        <!-- Shown when create_a_character() rejects the submitted stats -->
         {% if error %}
             <p style="color:red;">{{ error }}</p>
         {% endif %}
 
+        <!-- POSTs to create_a_character(), which validates the 8-18 range and
+             the 20-point budget server-side too (this form only checks client-side) -->
         <form method="POST" action="/create_a_character">
 
             <label for="character_name">Character Name</label>
             <input type="text" name="character_name" id="character_name">
 
+            <!-- Each stat starts at 8 (the point-buy floor) and can go up to 18.
+                 oninput="checkPoints()" recalculates the running point total live. -->
             <label for="strength">Strength (8-18)</label>
             <input type="number" name="strength" id="strength" min="8" max="18" value="8" oninput="checkPoints()">
 
@@ -44,6 +49,9 @@
 </body>
 
 <script>
+    // Recalculates "points remaining" out of the 20-point budget every time
+    // a stat input changes. Doesn't block submission on its own - the
+    // server (create_a_character()) re-validates the totals independently.
     function checkPoints() {
         const stats = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
         let totalSpent = 0;

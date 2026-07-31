@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>Aurilla</title>
+    <!-- Pico.css gives the base styling; fantasy-theme.css overrides it with the dark/coastal look -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='fantasy-theme.css') }}">
 </head>
 <body>
     <main class="container">
+        <!-- Landing page: entry point of the site, links to /login and /sign_up -->
         <h1>The Disappearances</h1>
 
         <p>A member of the royal family has vanished. Will you uncover the truth?</p>

@@ -13,33 +13,45 @@
 
         <p><a href="/character">character</a>                <a href="/account">Account</a></p>
 
+        <!-- Result of the PREVIOUS action: dialogue result_text, a check's
+             success/fail text, or a combat round summary. None on first load. -->
         {% if outcome %}
             <p><strong>{{ outcome }}</strong></p>
         {% endif %}
 
+        <!-- The current STORY_STEPS[mission_step]["text"] -->
         <p>{{ step.text }}</p>
 
+        <!-- Which form renders depends on step.type, set in Aurilla.py's STORY_STEPS: -->
+
         {% if step.type == 'buttons' %}
+            <!-- Multiple named choices; the value of whichever button is clicked
+                 becomes request.form['chosen_option'] in the /game route -->
             <form method="POST" action="/game">
                 {% for option_key, option_data in step.options.items() %}
                     <button type="submit" name="chosen_option" value="{{ option_key }}">{{ option_data.label }}</button>
                 {% endfor %}
             </form>
         {% elif step.type == 'auto' %}
+            <!-- No real choice - just a single button to move to next_step -->
             <form method="POST" action="/game">
                 <button type="submit">Continue</button>
             </form>
         {% elif step.type == 'check' %}
+            <!-- Triggers a single dice roll (stat + d20 vs difficulty) server-side -->
             <form method="POST" action="/game">
                 <button type="submit">Attempt</button>
             </form>
         {% elif step.type == 'combat' %}
+        <!-- One round of combat per submit: attack rolls to hit/damage the boss,
+             dodge boosts the player's defense against the boss's counterattack -->
         <form method="POST" action="/game">
             <button type="submit" name="chosen_option" value="attack">Attack</button>
             <button type="submit" name="chosen_option" value="dodge">Dodge</button>
         </form>
         {% endif %}
 
+        <!-- Debug/dev aid showing the raw mission_step key (e.g. 5.05, 4.2) -->
         <p>Mission step: {{ mission_step }}</p>
     
     </main>

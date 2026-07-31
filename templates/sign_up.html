@@ -3,15 +3,18 @@
 <head>
     <title>Aurilla Sign Up</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <!-- Note: unlike the other templates, this one doesn't link fantasy-theme.css -->
 </head>
 <body>
     <main class="container">
         <h1>Create an Account</h1>
 
+        <!-- Shown when sign_up() finds the username is already taken -->
         {% if error %}
             <p style="color:red;">{{ error }}</p>
         {% endif %}
 
+        <!-- POSTs to sign_up(), which inserts a new row into the user table -->
         <form method="POST" action="/sign_up">
             <label for="username">Username</label>
             <input type="text" name="username" id="username">

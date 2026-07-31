@@ -8,9 +8,13 @@
 </head>
 <body>
 
+    <!-- Confirmation page shown on GET /delete_character before anything is
+         actually deleted, so a stray click/refresh can't wipe a character out -->
     <h1>Are you sure?</h1>
     <p>This will permanently delete <strong>{{ character[2] }}</strong> and all of their progress. This cannot be undone.</p>
 
+    <!-- `character` here is the raw DB row tuple, so each stat is accessed
+         by its column index (matches the INSERT order in create_a_character()) -->
     <ul>
         <li>Strength: {{ character[3] }}</li>
         <li>Dexterity: {{ character[4] }}</li>
@@ -21,6 +25,8 @@
         <li>HP: {{ character[9] }} / {{ character[10] }}</li>
     </ul>
 
+    <!-- Submitting this POSTs to delete_character(), which actually deletes
+         the game_state row and the character row -->
     <form method="POST" action="{{ url_for('delete_character') }}">
         <button type="submit">Yes, delete this character</button>
     </form>

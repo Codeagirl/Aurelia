@@ -8,12 +8,16 @@
 <body>
     <main class="container">
         <h1>Aurilla</h1>
+        <!-- Mismatched tag: opens <h3>, closes </h2> -->
         <h3>You Lost!</h2>
 
         <p>That sucks!</p>
     
+        <!-- Reached via redirect(url_for('loss')) when player_current_hp <= 0 in the
+             combat handler. "Play again" routes through /delete_character since there's
+             no separate "reset" flow - deleting the character sends you back to character creation. -->
         <p>Want to Play again<a href="/delete_character">Click Here!</a>
 
     </main>
 </body>
-</html>  
+</html>

@@ -8,14 +8,19 @@
 <body>
     <main class="container">
         <h1>Aurilla</h1>
+        <!-- Note: opening tag is <h3> but closing tag is </h2> - mismatched, browsers will
+             usually auto-correct this, but worth fixing if you clean this file up later -->
         <h3>Account Information</h2>
 
         <p><a href="/account">Account</a>                  <a href="/game">game</a></p>
     
 
+        <!-- Same mismatched-tag pattern here: <h6> opens, </h3> closes -->
         <h6>character</h3>
+        <!-- character() passes the full character DB row as a tuple; Jinja's default
+             string conversion of the tuple is what actually gets displayed here -->
         <p>{{character}}</p>
     
     </main>
 </body>
-</html>  
+</html>
